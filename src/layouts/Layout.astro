@@ -12,8 +12,17 @@ import Navbar from '../components/Navbar.astro'
 		<title>Web de películas</title>
 	</head>
 	<body>
-		<Navbar />
-		<slot />
+		<div id="app" class="relative h-screen">
+			<aside class="[grid-area:aside] bg-lime-400">
+
+			</aside>
+			<nav class="[grid-area:nav] bg-blue-500">
+				<Navbar />
+			</nav>
+			<main class="[grid-area:main] bg-pink-400 p-4">
+				<slot />
+			</main>
+		</div>
 	</body>
 </html>
 
@@ -26,4 +35,26 @@ import Navbar from '../components/Navbar.astro'
 		height: 100%;
 		min-height: 100vh;
 	}
+
+	#app{
+		display: grid;
+		grid-template-areas: 
+		"aside nav nav"
+		"aside main main"
+		"aside main main";
+		grid-template-columns: 350px auto;
+		grid-template-rows: 100px 1fr auto;
+	}
+
+	@media (max-width: 700px) {
+        #app {
+        display: grid;
+        grid-template-areas:
+		  "nav nav nav"
+          "aside aside aside"
+          "main main main";
+        grid-template-columns: 150px auto;
+        grid-template-rows: 1fr auto;
+      }
+    }
 </style>
