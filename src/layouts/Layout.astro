@@ -13,8 +13,8 @@ import Navbar from '../components/Navbar.astro'
 	</head>
 	<body>
 		<div id="app" class="relative h-screen">
-			<aside class="[grid-area:aside] bg-lime-400">
-
+			<aside class="[grid-area:aside] bg-lime-400 p-4">
+				Barra Menú
 			</aside>
 			<nav class="[grid-area:nav] bg-blue-500">
 				<Navbar />
@@ -22,6 +22,9 @@ import Navbar from '../components/Navbar.astro'
 			<main class="[grid-area:main] bg-pink-400 p-4">
 				<slot />
 			</main>
+			<aside class="[grid-area:fav] bg-yellow-300 p-4">
+				Barra Rating
+			</aside>
 		</div>
 	</body>
 </html>
@@ -40,9 +43,9 @@ import Navbar from '../components/Navbar.astro'
 		display: grid;
 		grid-template-areas: 
 		"aside nav nav"
-		"aside main main"
-		"aside main main";
-		grid-template-columns: 350px auto;
+		"aside main fav"
+		"aside main fav";
+		grid-template-columns: 350px auto 250px;
 		grid-template-rows: 100px 1fr auto;
 	}
 
